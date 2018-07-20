@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title> WELCOME RENT SYSTEM</title>
+{% endblock %}
+
+{% block body %}
+<a href="{% url 'rent_units' %}">Rent Units</a>
+<a href="{% url 'renter' %}">Renter</a>
+<a href="{% url 'free_rent_units' %}">Free Rent Units</a>
+<h2>Rent Units</h2>
+	{% for rent_unit in rent_units %}
+		{{ rent_unit.name }}
+	{% endfor %}
+{% endblock %}

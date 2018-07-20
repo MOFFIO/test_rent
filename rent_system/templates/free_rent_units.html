@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block body %}
+<a href="{% url 'homepage' %}">Homepage</a>
+<a href="{% url 'renter' %}">Renter</a>
+<a href="{% url 'rent_units' %}">Rent Units</a>
+    {% if rent_units %}
+        <table cellpadding="8" border="2" width="100%">
+            <caption>Rent Units</caption>
+            <thead>
+                <tr>
+                    <th>NAME </th>
+                    <th>UNIT TYPE</th>
+                    <th>RENTER</th>
+                    <th>RENTED</th>
+                    <th>RENT</th>
+                    <th>ADRESS</th>
+                    <th>CONTRACT START</th>
+                    <th>CONTRACT EXPIRE</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rent_unit in rent_units %}
+                    <tr>
+                    <td>{{ rent_unit.name }}</td>
+                    <td>{{ rent_unit.unit_type }}</td>
+                    <td>{{ rent_unit.renter }}</td>
+                    <td>{{ rent_unit.rented }}</td>
+                    <td>{{ rent_unit.rent }}</td>
+                    <td>{{ rent_unit.adress }}</td>
+                    <td>{{ rent_unit.start_in }}</td>
+                    <td>{{ rent_unit.expire_at }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+    {% else %}
+        <div class="empty-db-message">
+            <font class="error-style" > No free units </font>
+        </div>
+    {% endif %}
+
+{% endblock %}
