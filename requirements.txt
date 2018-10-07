@@ -1,6 +1,6 @@
 backports.shutil-get-terminal-size==1.0.0
 decorator==4.3.0
-Django==1.11.14
+Django==1.11.15
 djangorestframework==3.8.2
 enum34==1.1.6
 ipdb==0.11
